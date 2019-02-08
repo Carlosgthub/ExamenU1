@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+    Equipos
+{% endblock titulo %}
+
+{% block contenido %}
+    <h1>Lista de equipos</h1>
+    
+    <a class="btn btn-primary" href="{% url 'registrarEquipo' %}">Registrar otro equipo</a>
+
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Equipo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for equipo in equipos %}
+            <tr>
+                <td>{{equipo.nombre}}</td>
+                <td>{{equipo.estadio}}</td>
+                <td><a class="btn btn-secondary" href="{% url 'equipoDetalle' equipo.id %}">Detalles</a></td>
+            </tr>
+            {% endfor %}                
+        </tbody>
+    </table>
+
+{% endblock contenido %}
+    

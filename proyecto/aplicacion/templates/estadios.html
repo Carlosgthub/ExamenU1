@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+
+
+{% block titulo %}
+    Estadios
+{% endblock titulo %}
+    
+
+{% block contenido %}
+    <h1>Lista de estadios</h1>
+    
+    <a class="btn btn-primary" href="{% url 'registrarEstadio' %}">Registrar otro estadio</a>
+
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Equipo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for estadio in estadios %}
+            <tr>
+                <td>{{estadio.nombre}}</td>
+                <td>{{estadio.equipo}}</td>
+                <td><a class="btn btn-secondary" href="{% url 'estadioDetalle' estadio.id %}">Detalles</a></td>
+            </tr>
+            {% endfor %}                
+        </tbody>
+    </table>
+
+{% endblock contenido %}
+    

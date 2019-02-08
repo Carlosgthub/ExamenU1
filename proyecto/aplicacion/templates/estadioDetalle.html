@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+    Detalles del estadio
+{% endblock titulo %}
+
+{% block contenido %}
+    <h1>Detalles del estadio</h1>
+
+    <h3>Nombre</h3>
+    <p>{{estadio.nombre}}</p>
+
+    <h3>Ciudad</h3>
+    <p>{{estadio.ciudad}}</p>
+
+    <h3>Capacidad</h3>
+    <p>{{estadio.capacidad}}</p>
+
+    <h3>Equipo</h3>
+    <p>{{estadio.equipo}}</p>
+
+{% endblock contenido %}
+    

@@ -1,0 +1,82 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+Jugadores
+{% endblock titulo %}
+
+{% block contenido %}
+<h1>Lista de jugadores</h1>
+
+
+<div class="row">
+    <div class="col-md">
+        <a class="btn btn-primary" href="{% url 'registrarJugador' %}">Registrar otro jugador</a>
+    </div>
+
+    <div class="col-md">
+        <div class="dropdown">
+            <button class="btn btn-success dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Listar por posicion
+            </button>
+            <div class="dropdown-menu" aria-labelledby="triggerId">
+                <a class="dropdown-item" href="{% url 'jugadorPosicion' 'Quarterback' %}">Quarterback</a>
+                <a class="dropdown-item" href="{% url 'jugadorPosicion' 'Wide Receiver' %}">Wide Receiver</a>
+                <a class="dropdown-item" href="{% url 'jugadorPosicion' 'Running Back' %}">Running Back</a>
+                <a class="dropdown-item" href="{% url 'jugadorPosicion' 'Tight End' %}">Tight End</a>
+                <a class="dropdown-item" href="{% url 'jugadorPosicion' 'Center' %}">Center</a>
+                <a class="dropdown-item" href="{% url 'jugadorPosicion' 'Offensive Guard' %}">Offensive Guard</a>
+                <a class="dropdown-item" href="{% url 'jugadorPosicion' 'Offensive Tackles' %}">Offensive Tackles</a>
+                <a class="dropdown-item" href="{% url 'jugadorPosicion' 'Defensive Tackle' %}">Offensive Guard</a>
+                <a class="dropdown-item" href="{% url 'jugadorPosicion' 'Defensive End' %}">Defensive End</a>
+                <a class="dropdown-item" href="{% url 'jugadorPosicion' 'Linebacker' %}">Linebacker</a>
+                <a class="dropdown-item" href="{% url 'jugadorPosicion' 'Cornerback' %}">Safety</a>
+                <a class="dropdown-item" href="{% url 'jugadorPosicion' 'Safety' %}">Cornerback</a>
+                <a class="dropdown-item" href="{% url 'jugadorPosicion' 'Safety' %}">Kicker</a>
+                <a class="dropdown-item" href="{% url 'jugadorPosicion' 'Punter' %}">Punter</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md">
+            <div class="dropdown">
+                <button class="btn btn-dark dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Listar jugadores por equipo
+                </button>
+                <div class="dropdown-menu" aria-labelledby="triggerId">
+                    
+                    {% for equipo in equipos %}
+                        <a class="dropdown-item" href="{% url 'jugadoresDelEquipo' equipo.id %}">{{equipo.nombre}}</a>
+                    {% endfor %}
+                        
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Equipo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for jugador in jugadores %}
+        <tr>
+            <td>{{jugador.nombre}}</td>
+            <td>{{jugador.apellido}}</td>
+            <td>{{jugador.equipo}}</td>
+            <td><a class="btn btn-secondary" href="{% url 'jugadorDetalle' jugador.id %}">Detalles</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}

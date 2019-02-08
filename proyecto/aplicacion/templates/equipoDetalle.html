@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+    Detalles del equipo
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <h1>Detalles del equipo</h1>
+
+    <h3>Nombre</h3>
+    <p>{{equipo.nombre}}</p>
+
+    <h3>Fundacion</h3>
+    <p>{{equipo.fundacion}}</p>
+
+    <h3>Estadio</h3>
+    <p>{{equipo.estadio}}</p>
+
+{% endblock contenido %}
+    

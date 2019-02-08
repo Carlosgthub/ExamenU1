@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+    Detalles del jugador
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <h1>Detalles del jugador</h1>
+
+    <h3>Nombre</h3>
+    <p>{{jugador.nombre}} {{jugador.apellido}}</p>
+
+    <h3>Edad</h3>
+    <p>{{jugador.edad}}</p>
+
+    <h3>Posicion</h3>
+    <p>{{jugador.posicion}}</p>
+
+    <h3>Equipo</h3>
+    <p>{{jugador.equipo}}</p>
+
+{% endblock contenido %}
+    

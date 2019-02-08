@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+Jugadores por posicion
+{% endblock titulo %}
+
+{% block contenido %}
+<h1>Lista de jugadores por posicion</h1>
+
+<a class="btn btn-warning" href="{% url 'jugadores' %}">Regresar</a>
+
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Equipo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for jugador in jugadores %}
+        <tr>
+            <td>{{jugador.nombre}}</td>
+            <td>{{jugador.apellido}}</td>
+            <td>{{jugador.equipo}}</td>
+            <td><a class="btn btn-secondary" href="{% url 'jugadorDetalle' jugador.id %}">Detalles</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}
